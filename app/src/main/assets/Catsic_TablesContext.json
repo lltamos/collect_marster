@@ -1,0 +1,30 @@
+{
+  "content": [
+    {
+      "tName": "T_xz",
+      "fields": [
+        {
+          "fName": "XZBM",
+          "fOrder": "1"
+        },
+        {
+          "fName": "XZMC",
+          "fOrder": "2"
+        }
+      ]
+    },
+    {
+      "tName": "T_jzc",
+      "fields": [
+        {
+          "fName": "JZCBM",
+          "fOrder": "1"
+        },
+        {
+          "fName": "JZCMC",
+          "fOrder": "2"
+        }
+      ]
+    }
+  ]
+}

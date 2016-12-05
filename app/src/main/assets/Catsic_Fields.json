@@ -1,0 +1,24 @@
+{
+  "content": [
+    {
+      "fName": "XMBM",
+      "fNameCHS": "乡镇编码",
+      "fType": "Char",
+      "fLen": "20",
+      "fDec": "0",
+      "fKey": "true",
+      "frequired": "true",
+      "fcode": ""
+    },
+    {
+      "fName": "AJCHNXF",
+      "fNameCHS": "按建筑材料和使用年限分",
+      "fType": "Char",
+      "fLen": "1",
+      "fDec": "0",
+      "fKey": "false",
+      "frequired": "false",
+      "fcode": "TC_ajchnxf"
+    }
+  ]
+}

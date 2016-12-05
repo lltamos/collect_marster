@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.master.app.weight.WarrScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/button_gray">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <com.master.app.weight.CustomTextView
+                        android:id="@+id/ct_roadAttr"
+                        style="@style/text_color_style"
+                        android:layout_width="130dp"
+                        android:layout_height="37dp"
+                        android:gravity="center"
+                        android:text="路网地图属性"
+                        android:textSize="14sp"
+                        app:textLeftBottomRadius="8dp"
+                        app:textLeftTopRadius="8dp"
+                        app:textSolidColor="@color/white"
+                        app:textStrokeColor="@color/light_dark"
+                        app:textStrokeWidth="1dp" />
+
+                    <com.master.app.weight.CustomTextView
+                        android:id="@+id/ct_workAttr"
+                        style="@style/text_color_style"
+                        android:layout_width="130dp"
+                        android:layout_height="37dp"
+                        android:layout_marginLeft="-1dp"
+                        android:gravity="center"
+                        android:text="工作地图属性"
+                        android:textSize="14sp"
+                        app:textRightBottomRadius="8dp"
+                        app:textRightTopRadius="8dp"
+                        app:textSolidColor="@color/white"
+                        app:textStrokeColor="@color/light_dark"
+                        app:textStrokeWidth="1dp" />
+                </LinearLayout>
+
+
+            </android.support.v7.widget.Toolbar>
+            >
+
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_1"
+                style="@style/text_item_style"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                android:elevation="@dimen/elevation_3dp"
+                android:text="路线" />
+
+            <View style="@style/line_style"></View>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_2"
+                style="@style/text_item_style"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                android:elevation="@dimen/elevation_3dp"
+                android:text="路段" />
+
+            <View style="@style/line_style"></View>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_3"
+                style="@style/text_item_style"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                android:elevation="@dimen/elevation_3dp"
+                android:text="桥梁" />
+
+            <View style="@style/line_style"></View>
+
+            <android.support.v7.widget.AppCompatTextView
+
+                android:id="@+id/tv_4"
+                style="@style/text_item_style"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                android:elevation="@dimen/elevation_3dp"
+                android:text="隧道" />
+
+            <View style="@style/line_style"></View>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_5"
+
+                style="@style/text_item_style"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                android:elevation="@dimen/elevation_3dp"
+                android:text="乡镇" />
+
+            <View style="@style/line_style"></View>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_6"
+                style="@style/text_item_style"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                android:elevation="@dimen/elevation_3dp"
+                android:text="建制村" />
+
+            <View style="@style/line_style"></View>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_7"
+                style="@style/text_item_style"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                android:elevation="@dimen/elevation_3dp"
+                android:text="自然村" />
+
+            <View style="@style/line_style"></View>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_8"
+                style="@style/text_item_style"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                android:elevation="@dimen/elevation_3dp"
+                android:text="..." />
+
+            <View style="@style/line_style"></View>
+
+        </LinearLayout>
+    </LinearLayout>
+</com.master.app.weight.WarrScrollView>

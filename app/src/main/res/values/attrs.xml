@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+
+
+    <!--AdvancedPagerSlidingTabStrip_ 首页选项卡-->
+    <declare-styleable name="AdvancedPagerSlidingTabStrip">
+        <attr name="apTabIndicatorColor" format="color" />
+        <attr name="apTabUnderlineColor" format="color" />
+        <attr name="apTabDividerColor" format="color" />
+        <attr name="apTabTextSelectColor" format="color" />
+        <attr name="apTabIndicatorHeight" format="dimension" />
+        <attr name="apTabUnderlineHeight" format="dimension" />
+        <attr name="apTabDividerPadding" format="dimension" />
+        <attr name="apTabPaddingLeftRight" format="dimension" />
+        <attr name="apTabPaddingTopBottom" format="dimension" />
+        <attr name="apTabScrollOffset" format="dimension" />
+        <attr name="apTabBackground" format="reference" />
+        <attr name="apTabShouldExpand" format="boolean" />
+        <attr name="apTabTextAllCaps" format="boolean" />
+        <attr name="apTabDrawMode" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="text" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="IconEditText">
+        <attr name="iconSrc" format="reference" />
+        <attr name="isPassword" format="boolean" />
+        <attr name="hint" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="lableGride">
+        <attr name="datas" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="customTextView">
+        <attr name="textSolidColor" format="color" />
+        <attr name="textStrokeColor" format="color" />
+        <attr name="textRadius" format="dimension" />
+        <attr name="textLeftTopRadius" format="dimension" />
+        <attr name="textLeftBottomRadius" format="dimension" />
+        <attr name="textRightTopRadius" format="dimension" />
+        <attr name="textRightBottomRadius" format="dimension" />
+        <attr name="textStrokeWidth" format="dimension" />
+        <attr name="textDrawable" format="reference" />
+        <attr name="textNormalTextColor" format="color" />
+        <attr name="textSelectedTextColor" format="color" />
+    </declare-styleable>
+</resources>

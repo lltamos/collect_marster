@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_title" />
+
+    <com.master.app.weight.WarrScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            style="@style/match_match"
+            android:orientation="vertical">
+
+            <FrameLayout style="@style/match_wrap">
+
+                <LinearLayout
+                    style="@style/match_match"
+                    android:layout_height="67dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/wrap_wrap"
+                        android:layout_marginTop="8dp"
+                        android:text="按时间间隔"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        style="@style/wrap_wrap"
+                        android:layout_marginTop="8dp"
+                        android:text="采集过程中按固定时间记录采集点"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginRight="8dp" />
+            </FrameLayout>
+
+            <View style="@style/line_style" />
+
+            <LinearLayout
+                style="@style/match_wrap"
+                android:layout_height="67dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:text="时间间隔(秒):"
+                    android:textSize="15sp" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    style="@style/match_wrap"
+                    android:layout_marginLeft="12px"
+                    android:hint="10"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <View style="@style/line_style" />
+
+            <FrameLayout style="@style/match_wrap">
+
+                <LinearLayout
+                    style="@style/match_match"
+                    android:layout_height="57dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/wrap_wrap"
+                        android:layout_marginTop="8dp"
+                        android:text="按距离间隔"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        style="@style/wrap_wrap"
+                        android:layout_marginTop="8dp"
+                        android:text="采集过程中按固定距离记录采集点"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginRight="8dp" />
+            </FrameLayout>
+
+            <View style="@style/line_style" />
+
+            <LinearLayout
+                style="@style/match_wrap"
+                android:layout_height="57dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:text="距离间隔(米):"
+                    android:textSize="15sp" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    style="@style/match_wrap"
+                    android:layout_marginLeft="12px"
+                    android:hint="10"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <View style="@style/line_style" />
+
+            <FrameLayout style="@style/match_wrap">
+
+                <LinearLayout
+                    style="@style/match_match"
+                    android:layout_height="57dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/wrap_wrap"
+                        android:layout_marginTop="8dp"
+                        android:text="车速限制"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        style="@style/wrap_wrap"
+                        android:layout_marginTop="8dp"
+                        android:text="当车速超出限制速度时，软件提示超速"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginRight="8dp" />
+            </FrameLayout>
+
+            <View style="@style/line_style" />
+
+            <LinearLayout
+                style="@style/match_wrap"
+                android:layout_height="57dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/wrap_wrap"
+                    android:text="最高车速(公里/小时):"
+                    android:textSize="15sp" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    style="@style/match_wrap"
+                    android:layout_marginLeft="12px"
+                    android:hint="10"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </com.master.app.weight.WarrScrollView>
+
+
+</LinearLayout>

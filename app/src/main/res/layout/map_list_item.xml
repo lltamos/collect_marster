@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        style="@style/line_style"></View>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+       <com.rey.material.widget.CheckBox
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/text_color_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="某某地图1"/>
+
+        <TextView
+            style="@style/text_color_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50M"/>
+
+        <TextView
+            style="@style/text_color_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016-10-18 09:30:44"/>
+    </LinearLayout>
+
+</LinearLayout>

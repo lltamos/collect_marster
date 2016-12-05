@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <com.esri.android.map.MapView
+            android:id="@+id/map"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="140dp"
+            android:layout_marginStart="27dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/imageButton1"
+            android:layout_marginBottom="110dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/imageButton2"
+            android:layout_marginBottom="80dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@android:drawable/ic_menu_search" />
+
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/imageButton3"
+            android:layout_marginBottom="29dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@android:drawable/ic_menu_mylocation" />
+
+
+    </RelativeLayout>
+</LinearLayout>
+
+
+
