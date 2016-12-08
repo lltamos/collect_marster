@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.master.R;
 import com.master.app.tools.GPSUtils;
@@ -25,7 +26,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew, JsonApi,CommonListener {
+public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew, JsonApi, CommonListener {
 
     @BindView(R.id.tabs)
     AdvancedPagerSlidingTabStrip tabs;
@@ -36,6 +37,9 @@ public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew
     @BindView(R.id.viewPager)
     APSTSViewPager viewPager;
 
+
+    @BindView(R.id.ll_container)
+    LinearLayout llContainer;
     private BottomSheetDialog sheet;
     public MainActivity mainActivity;
 
@@ -83,7 +87,9 @@ public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew
 
     @Override
     public void addFormElements(List<View> views) {
-
+        for (View view : views) {
+            llContainer.addView(view);
+        }
     }
 
     @Override
@@ -94,7 +100,7 @@ public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew
     @Override
     public Object getArguments(String fname) {
 
-        return null;
+        return fname; 
     }
 
     @Override
