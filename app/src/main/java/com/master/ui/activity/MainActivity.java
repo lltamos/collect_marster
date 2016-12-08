@@ -22,6 +22,8 @@ import com.master.ui.viewer.MainVIew;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 import butterknife.BindView;
 
 public class MainActivity extends MvpActivity implements MainVIew, JsonApi,CommonListener {
@@ -78,6 +80,16 @@ public class MainActivity extends MvpActivity implements MainVIew, JsonApi,Commo
     @Override
     public void hideExtra() {
         sheet.dismiss();
+    }
+
+    @Override
+    public void addFormElements(List<View> views) {
+
+    }
+
+    @Override
+    public void showToast(String message) {
+
     }
 
     @Override

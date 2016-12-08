@@ -14,9 +14,11 @@ import java.util.List;
 
 public interface MainVIew extends MvpView {
 
-   void showExtra();
-   void hideExtra();
+    void showExtra();
 
-  void addFormElements(List<View> views);
-   void showToast(String message);
+    void hideExtra();
+
+    void addFormElements(List<View> views);
+
+    void showToast(String message);
 }
