@@ -100,7 +100,7 @@ public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew
     @Override
     public Object getArguments(String fname) {
 
-        return fname; 
+        return fname;
     }
 
     @Override
