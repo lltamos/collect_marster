@@ -14,4 +14,8 @@ public class MainPresenter extends MvpPresenter {
     public MainPresenter(MvpModel mModel) {
         super(mModel);
     }
+
+    public void addFormElements(String fname){
+
+    }
 }

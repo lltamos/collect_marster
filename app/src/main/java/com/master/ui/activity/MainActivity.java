@@ -107,7 +107,7 @@ public class MainActivity extends MvpActivity implements MainVIew, JsonApi,Commo
 
     @Override
     public void onClick(View v) {
-        
+
     }
 
     @Override
