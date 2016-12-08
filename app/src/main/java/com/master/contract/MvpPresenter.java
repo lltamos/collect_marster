@@ -15,6 +15,9 @@ public class MvpPresenter<V extends MvpView, T extends MvpModel> implements Base
         this.mModel = mModel;
     }
 
+    public MvpPresenter() {
+    }
+
     @Override
     public void attachView(V view) {
         viewRef = new WeakReference<V>(view);

@@ -1,7 +1,8 @@
 package com.master.presenter;
 
-import com.master.contract.MvpModel;
 import com.master.contract.MvpPresenter;
+import com.master.model.MainModel;
+import com.master.ui.viewer.MainVIew;
 
 /**
  * @param
@@ -9,13 +10,14 @@ import com.master.contract.MvpPresenter;
  *         ~
  */
 
-public class MainPresenter extends MvpPresenter {
+public class MainPresenter extends MvpPresenter<MainVIew,MainModel> {
 
-    public MainPresenter(MvpModel mModel) {
+    public MainPresenter(MainModel mModel) {
         super(mModel);
     }
 
-    public void addFormElements(String fname){
+    public void addFormElements(String fname) {
 
     }
+
 }

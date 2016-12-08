@@ -13,7 +13,6 @@ import com.master.app.view.CommonListener;
 import com.master.app.view.JsonApi;
 import com.master.app.weight.APSTSViewPager;
 import com.master.app.weight.AdvancedPagerSlidingTabStrip;
-import com.master.contract.MvpPresenter;
 import com.master.model.MainModel;
 import com.master.presenter.MainPresenter;
 import com.master.ui.adapter.TabsAdapter;
@@ -26,7 +25,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class MainActivity extends MvpActivity implements MainVIew, JsonApi,CommonListener {
+public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew, JsonApi,CommonListener {
 
     @BindView(R.id.tabs)
     AdvancedPagerSlidingTabStrip tabs;
@@ -41,7 +40,7 @@ public class MainActivity extends MvpActivity implements MainVIew, JsonApi,Commo
     public MainActivity mainActivity;
 
     @Override
-    protected MvpPresenter createPresenter() {
+    protected MainPresenter createPresenter() {
 
         return new MainPresenter(new MainModel());
 
@@ -90,6 +89,12 @@ public class MainActivity extends MvpActivity implements MainVIew, JsonApi,Commo
     @Override
     public void showToast(String message) {
 
+    }
+
+    @Override
+    public Object getArguments(String fname) {
+
+        return null;
     }
 
     @Override

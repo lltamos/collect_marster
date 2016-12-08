@@ -21,4 +21,7 @@ public interface MainVIew extends MvpView {
     void addFormElements(List<View> views);
 
     void showToast(String message);
+
+    Object getArguments(String fname);
+
 }
