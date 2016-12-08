@@ -2,10 +2,14 @@ package com.master.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 import com.master.R;
 import com.master.app.tools.GPSUtils;
+import com.master.app.view.CommonListener;
 import com.master.app.view.JsonApi;
 import com.master.app.weight.APSTSViewPager;
 import com.master.app.weight.AdvancedPagerSlidingTabStrip;
@@ -20,8 +24,7 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 
-public class MainActivity extends MvpActivity implements MainVIew, JsonApi {
-
+public class MainActivity extends MvpActivity implements MainVIew, JsonApi,CommonListener {
 
     @BindView(R.id.tabs)
     AdvancedPagerSlidingTabStrip tabs;
@@ -100,5 +103,25 @@ public class MainActivity extends MvpActivity implements MainVIew, JsonApi {
     @Override
     public String getCount() {
         return null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
     }
 }
