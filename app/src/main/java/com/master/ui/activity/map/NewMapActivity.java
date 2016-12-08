@@ -8,11 +8,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.master.R;
+import com.master.app.orm.DbHelperDbHelper;
 import com.master.app.tools.ActionBarManager;
 import com.master.app.tools.StringUtils;
-import com.master.bean.MapInfo;
 import com.master.contract.BaseActivity;
-import com.master.dao.MapDao;
 
 import java.util.Date;
 
@@ -42,15 +41,18 @@ public class NewMapActivity extends BaseActivity {
         return R.layout.activity_new_map;
     }
 
+    private int i = 10000;
 
     @OnClick(R.id.btn_submit)
     public void onClick() {
+
+
         String mapName = tv_name.getText().toString();
         if (StringUtils.isNotEmpty(mapName)) {
-            MapInfo bean = new MapInfo(new Date(), mapName, false);
-            boolean inserts = MapDao.get().inserts(bean);
-            if (inserts) Toast.makeText(this, "新建地图成功", Toast.LENGTH_SHORT).show();
-        } else Toast.makeText(this, "请输入名称", Toast.LENGTH_SHORT).show();
+            long ap = DbHelperDbHelper.open().addMAp( mapName, new Date(), "否");
+            Toast.makeText(this, "Ap"+ap, Toast.LENGTH_SHORT).show();
+        } else
+            Toast.makeText(this, "请输入名称", Toast.LENGTH_SHORT).show();
 
     }
 }

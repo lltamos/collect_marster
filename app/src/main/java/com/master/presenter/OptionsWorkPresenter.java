@@ -2,8 +2,8 @@ package com.master.presenter;
 
 import android.util.Log;
 
+import com.master.app.orm.DbHelperDbHelper;
 import com.master.contract.MvpPresenter;
-import com.master.dao.MapDao;
 import com.master.model.BaseModel;
 import com.master.ui.activity.map.OptionsWorkActivity;
 
@@ -30,10 +30,9 @@ public class OptionsWorkPresenter extends MvpPresenter<OptionsWorkActivity, Base
         Observable.create(new Observable.OnSubscribe<List>() {
             @Override
             public void call(Subscriber<? super List> subscriber) {
-                List list = MapDao.get().querysAll();
+                List list = DbHelperDbHelper.open().getAllMap();
                 if (list.size() > 0)
                     subscriber.onNext(list);
-
             }
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

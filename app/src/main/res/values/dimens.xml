@@ -12,4 +12,5 @@
     <dimen name="statue_bar_top_padding">24dp</dimen>
     <dimen name="magin_1dp">1dp</dimen>
     <dimen name="elevation_3dp">3dp</dimen>
+    <dimen name="default_text_size">16sp</dimen>
 </resources>

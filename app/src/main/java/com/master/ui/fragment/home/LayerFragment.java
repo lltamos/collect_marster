@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.esri.android.map.MapView;
+import com.esri.android.map.ags.ArcGISTiledMapServiceLayer;
+import com.esri.android.runtime.ArcGISRuntime;
 import com.master.R;
 import com.master.app.tools.CommonUtils;
 import com.master.model.LayerModel;
@@ -11,9 +14,6 @@ import com.master.presenter.LayerPresenter;
 import com.master.ui.activity.map.MrLayerActivity;
 import com.master.ui.fragment.MvpFragment;
 import com.master.ui.viewer.LayerView;
-import com.esri.android.map.MapView;
-import com.esri.android.map.ags.ArcGISTiledMapServiceLayer;
-import com.esri.android.runtime.ArcGISRuntime;
 
 import butterknife.BindString;
 import butterknife.BindView;

@@ -138,7 +138,7 @@ public class AirbrakeNotifier {
 
     /**
      * Add a custom set of key/value data that will be sent as session data with each notification
-     * @param extraData a Map of String -> String
+     * @param extraData a Maps of String -> String
      */
     public static void setExtraData(Map<String,String> extraData) {
         AirbrakeNotifier.extraData = extraData;

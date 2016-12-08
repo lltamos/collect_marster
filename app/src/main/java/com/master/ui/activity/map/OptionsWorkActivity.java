@@ -12,13 +12,15 @@ import com.master.R;
 import com.master.app.SynopsisObj;
 import com.master.app.tools.ActionBarManager;
 import com.master.app.tools.CommonDateParseUtils;
+import com.master.app.tools.LoggerUtils;
 import com.master.app.weight.SearchBar;
 import com.master.app.weight.SearchListView;
-import com.master.bean.MapInfo;
+import com.master.bean.Maps;
 import com.master.model.BaseModel;
 import com.master.presenter.OptionsWorkPresenter;
 import com.master.ui.activity.MvpActivity;
 
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -62,17 +64,15 @@ public class OptionsWorkActivity extends MvpActivity<OptionsWorkPresenter> {
     }
 
 
-    public void initPortalItemView(List<MapInfo> list) {
-
+    public void initPortalItemView(List list) {
         adapter.setData(list);
-
     }
 
     class MyAdapter extends BaseAdapter {
-        private List<MapInfo> list;
+        private List<Maps> list;
         private ViewHolder holder;
 
-        public void setData(List<MapInfo> list) {
+        public void setData(List<Maps> list) {
             this.list = list;
 
             notifyDataSetChanged();
@@ -104,10 +104,13 @@ public class OptionsWorkActivity extends MvpActivity<OptionsWorkPresenter> {
             }
             holder = (ViewHolder) convertView.getTag();
 
+            String msg = "cx";
+            int id = 10000 + list.get(position).mId;
+            holder.tvId.setText(msg + id);
+            holder.tvName.setText(list.get(position).mName);
+            LoggerUtils.d("adapter", list.get(position).cjsj);
 
-            holder.tvId.setText(("cx" + 10000 + list.get(position).getMid()));
-            holder.tvName.setText(list.get(position).getMmapname());
-            holder.tvDate.setText(CommonDateParseUtils.date2string(list.get(position).getCjsj(), CommonDateParseUtils.YYYY_MM_DD_HH_MM));
+            holder.tvDate.setText(CommonDateParseUtils.date2string(new Date(Long.parseLong(list.get(position).cjsj)), CommonDateParseUtils.YYYY_MM_DD_HH_MM));
             return convertView;
         }
 

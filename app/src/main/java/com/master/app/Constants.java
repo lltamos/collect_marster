@@ -30,4 +30,6 @@ public class Constants {
 
     //屏幕常亮
     public static final String  SC_WAKE_LOCK="SC_WAKE_LOCK";
+
+    public static String ConfigSqliteDB = "config.sqlite";
 }

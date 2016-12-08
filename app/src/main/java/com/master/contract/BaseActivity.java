@@ -111,9 +111,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
         if (toGetWindowTokenView != null) {
             KeyboardUtils.hideKeyboard(BaseActivity.this, toGetWindowTokenView);
         }
-
         finish();
-
         if (b) {
             overridePendingTransition(R.anim.left_push_in, R.anim.right_push_out);
         }

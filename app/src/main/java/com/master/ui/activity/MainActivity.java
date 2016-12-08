@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.master.R;
 import com.master.app.tools.GPSUtils;
+import com.master.app.view.JsonApi;
 import com.master.app.weight.APSTSViewPager;
 import com.master.app.weight.AdvancedPagerSlidingTabStrip;
 import com.master.contract.MvpPresenter;
@@ -14,9 +15,12 @@ import com.master.presenter.MainPresenter;
 import com.master.ui.adapter.TabsAdapter;
 import com.master.ui.viewer.MainVIew;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import butterknife.BindView;
 
-public class MainActivity extends MvpActivity implements MainVIew {
+public class MainActivity extends MvpActivity implements MainVIew, JsonApi {
 
 
     @BindView(R.id.tabs)
@@ -29,6 +33,7 @@ public class MainActivity extends MvpActivity implements MainVIew {
     APSTSViewPager viewPager;
 
     private BottomSheetDialog sheet;
+    public MainActivity mainActivity;
 
     @Override
     protected MvpPresenter createPresenter() {
@@ -43,6 +48,7 @@ public class MainActivity extends MvpActivity implements MainVIew {
         tabs.setViewPager(viewPager);
         viewPager.setOffscreenPageLimit(5);
         sheet = new BottomSheetDialog(this);
+        mainActivity = this;
         ivBtn.setOnClickListener(v ->
                 showExtra()
         );
@@ -69,5 +75,30 @@ public class MainActivity extends MvpActivity implements MainVIew {
     @Override
     public void hideExtra() {
         sheet.dismiss();
+    }
+
+    @Override
+    public JSONObject getStep(String stepName) {
+        return null;
+    }
+
+    @Override
+    public void writeValue(String stepName, String key, String value) throws JSONException {
+
+    }
+
+    @Override
+    public void writeValue(String stepName, String prentKey, String childObjectKey, String childKey, String value) throws JSONException {
+
+    }
+
+    @Override
+    public String currentJsonState() {
+        return null;
+    }
+
+    @Override
+    public String getCount() {
+        return null;
     }
 }

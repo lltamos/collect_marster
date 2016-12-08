@@ -14,11 +14,9 @@ import com.orhanobut.logger.Logger;
 
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
-/**
- * Created by Litao-pc on 2016/9/7.
- */
+
 public class SynopsisObj extends Application {
-    public static Context sContext;
+    private static Context sContext;
     public static boolean allow_anonymous = true;
     public static String chrootDir = Environment.getExternalStorageDirectory().toString();
     public static int portNum = 2121;

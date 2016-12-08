@@ -27,7 +27,7 @@ public class ObjectUtils {
 	}
 	
 	/**
-	 * 可以用于判断 Map,Collection,String,Array是否为空
+	 * 可以用于判断 Maps,Collection,String,Array是否为空
 	 * @param o
 	 * @return
 	 */
@@ -51,14 +51,14 @@ public class ObjectUtils {
 				return true;
 			}
 		}else {
-			throw new IllegalArgumentException("Illegal argument type,must be : Map,Collection,Array,String. but was:"+o.getClass());
+			throw new IllegalArgumentException("Illegal argument type,must be : Maps,Collection,Array,String. but was:"+o.getClass());
 		}
 
 		return false;
 	}
 
 	/**
-	 * 可以用于判断 Map,Collection,String,Array是否不为空
+	 * 可以用于判断 Maps,Collection,String,Array是否不为空
 	 * @param c
 	 * @return
 	 */

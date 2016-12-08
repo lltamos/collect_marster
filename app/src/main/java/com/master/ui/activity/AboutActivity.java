@@ -16,7 +16,6 @@ public class AboutActivity extends BaseActivity {
     @BindView(R.id.title)
     TextView title;
 
-
     @Override
     public void bindView(Bundle savedInstanceState) {
         setSupportActionBar(toolbar);
