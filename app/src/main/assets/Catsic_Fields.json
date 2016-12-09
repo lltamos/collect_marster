@@ -1,8 +1,38 @@
 {
   "content": [
     {
-      "fName": "XMBM",
+      "fName": "XZBM",
       "fNameCHS": "乡镇编码",
+      "fType": "Char",
+      "fLen": "20",
+      "fDec": "0",
+      "fKey": "true",
+      "frequired": "true",
+      "fcode": ""
+    },
+    {
+      "fName": "XZMC",
+      "fNameCHS": "乡镇名称",
+      "fType": "Char",
+      "fLen": "20",
+      "fDec": "0",
+      "fKey": "true",
+      "frequired": "true",
+      "fcode": ""
+    },
+    {
+      "fName": "JZCBM",
+      "fNameCHS": "建制村编码",
+      "fType": "Char",
+      "fLen": "20",
+      "fDec": "0",
+      "fKey": "true",
+      "frequired": "true",
+      "fcode": ""
+    },
+    {
+      "fName": "JZCMC",
+      "fNameCHS": "建制村名称",
       "fType": "Char",
       "fLen": "20",
       "fDec": "0",

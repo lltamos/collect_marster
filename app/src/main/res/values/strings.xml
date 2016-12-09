@@ -3,6 +3,7 @@
     <string name="blank">""</string>
     <string name="organiz">单位名称</string>
     <string name="basemap_url">http://cache1.arcgisonline.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer</string>
+    <string name="baseimage_url">http://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer</string>
     <!-- Strings related to login -->
     <string name="prompt_organiz">请输入单位名称</string>
     <string name="prompt_captcha">请输入验证码</string>
@@ -118,5 +119,8 @@
 
     <!-- rename file dialog-->
     <string name="dialog_rename_file">请输入新的文件名</string>
-
+    <!-- bg map filepath-->
+    <string name="offline_dir_bg">Collect_for_ArcGIS/region</string>
+    <!-- gl map filepath-->
+    <string name="offline_dir_gl">Collect_for_ArcGIS/road</string>
 </resources>

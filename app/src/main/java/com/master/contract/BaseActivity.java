@@ -137,6 +137,5 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
             finish(true);
         }
         return false;
-
     }
 }

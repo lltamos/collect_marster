@@ -2,6 +2,7 @@ package com.master.ui.viewer;
 
 import android.view.View;
 
+import com.master.bean.Fields;
 import com.master.contract.MvpView;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public interface MainVIew extends MvpView {
 
     void showToast(String message);
 
-    Object getArguments(String fname);
+    List<Fields> getArguments(String fname, List<Fields> list);
 
+    void show(View v);
 }

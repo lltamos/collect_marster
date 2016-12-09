@@ -17,8 +17,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true" />
 
-        <ImageButton
-            android:id="@+id/imageButton1"
+        <ImageView
+            android:id="@+id/image_tuceng"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentBottom="true"
@@ -26,38 +26,39 @@
             android:layout_marginBottom="140dp"
             android:layout_marginStart="27dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
+            android:src="@drawable/drawer_search"
+             />
 
-        <ImageButton
-            android:id="@+id/imageButton2"
+        <ImageView
+            android:id="@+id/image_identify"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/imageButton1"
+            android:layout_alignStart="@+id/image_tuceng"
             android:layout_marginBottom="110dp"
-            android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
+            android:background="@drawable/identify_background"
+            />
 
-        <ImageButton
-            android:id="@+id/imageButton3"
+        <ImageView
+            android:id="@+id/image_measure"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/imageButton2"
             android:layout_marginBottom="80dp"
+            android:layout_alignStart="@+id/image_identify"
             android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_menu_search" />
+            android:src="@drawable/drawer_search" />
 
 
-        <ImageButton
-            android:id="@+id/imageButton4"
+        <ImageView
+            android:id="@+id/image_zoomcenter"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/imageButton3"
             android:layout_marginBottom="29dp"
+            android:layout_alignStart="@+id/image_measure"
             android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_menu_mylocation" />
+            android:src="@drawable/drawer_search" />
 
 
     </RelativeLayout>

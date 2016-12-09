@@ -9,9 +9,9 @@ import com.master.R;
 import com.master.app.tools.CommonUtils;
 import com.master.contract.BaseFragment;
 import com.master.ui.activity.FtpManagerActivity;
-import com.master.ui.activity.UncapMapActivity;
 import com.master.ui.activity.map.NewMapActivity;
 import com.master.ui.activity.map.OptionsWorkActivity;
+import com.master.ui.activity.map.UncapMapActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -37,8 +37,10 @@ public class HomeFragment extends BaseFragment {
 
 
 
-    @OnClick({R.id.atv1, R.id.atv2, R.id.atv3, R.id.atv4,R.id.act_export})
+    @OnClick({R.id.atv1, R.id.atv2, R.id.atv3, R.id.atv4,R.id.atv5,R.id.act_export})
     public void onClick(View view) {
+        Intent intent= new Intent(mContext, UncapMapActivity.class);
+        Bundle bundle = new Bundle();
         switch (view.getId()) {
             case R.id.atv1:
                 CommonUtils.toActivity(mContext,new Intent(mContext, OptionsWorkActivity.class));
@@ -47,13 +49,19 @@ public class HomeFragment extends BaseFragment {
                 CommonUtils.toActivity(mContext,new Intent(mContext, NewMapActivity.class));
                 break;
             case R.id.atv3:
-                CommonUtils.toActivity(mContext,new Intent(mContext, UncapMapActivity.class));
+                bundle.putString("maptype", "bg");
+                intent.putExtras(bundle);
+                CommonUtils.toActivity(mContext,intent);
                 break;
             case R.id.atv4:
-                CommonUtils.toActivity(mContext,new Intent(mContext, UncapMapActivity.class));
+                bundle.putString("maptype", "gl");
+                intent.putExtras(bundle);
+                CommonUtils.toActivity(mContext,intent);
                 break;
             case R.id.atv5:
-                CommonUtils.toActivity(mContext,new Intent(mContext, UncapMapActivity.class));
+                bundle.putString("maptype", "online");
+                intent.putExtras(bundle);
+                CommonUtils.toActivity(mContext,intent);
                 break;
             case R.id.act_export:
                 CommonUtils.toActivity(mContext,new Intent(mContext, FtpManagerActivity.class));

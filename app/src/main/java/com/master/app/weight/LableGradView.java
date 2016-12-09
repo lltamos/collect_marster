@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetBehavior;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +14,19 @@ import android.view.animation.LayoutAnimationController;
 import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.master.R;
 import com.master.app.Constants;
 import com.master.app.Manager.AcquisitionPara;
 import com.master.app.tools.AppManager;
 import com.master.app.tools.CommonUtils;
+import com.master.bean.Fields;
 import com.master.bean.Table;
-import com.master.ui.activity.map.CollectListActivity;
 import com.master.ui.activity.MainActivity;
+import com.master.ui.activity.map.CollectListActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -99,7 +101,7 @@ public class LableGradView extends GridView {
 
                 lable.setOnClickListener(view1 -> {
                     if (datasId == R.array.m_line_label) {
-                        ((MainActivity) AppManager.getAppManager().currentActivity()).hideExtra();
+                        MainActivity.S_MainActivity.hideExtra();
                         Intent intent = new Intent(AppManager.getAppManager().currentActivity(), CollectListActivity.class);
                         Bundle b = new Bundle();
                         b.putSerializable(Constants.SELECT_COLLECT_LABE, dataList.get(i));
@@ -107,13 +109,13 @@ public class LableGradView extends GridView {
                         CommonUtils.toActivity(AppManager.getAppManager().currentActivity(), intent);
                     }
                     if (datasId == R.array.m_point_label) {
-                        ((MainActivity) AppManager.getAppManager().currentActivity()).hideExtra();
-                        BottomSheetBehavior behavior = BottomSheetBehavior.from(AppManager.getAppManager().currentActivity().findViewById(R.id.main_scroll));
-                        if (behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
-                            behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                        } else {
-                            behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                        }
+                        MainActivity.S_MainActivity.hideExtra();
+
+                        Toast.makeText(context, dataList.get(i).getTNameCHS(), Toast.LENGTH_SHORT).show();
+                        List<Fields> arguments = MainActivity.S_MainActivity.getArguments(dataList.get(i).getTName(), new ArrayList<>());
+                        if (arguments == null) return;
+                        MainActivity.S_MainActivity.builderSheet(arguments);
+                        MainActivity.S_MainActivity.show(MainActivity.S_MainActivity.findViewById(R.id.main_scroll));
                     }
                 });
                 lable.setText(dataList.get(i).getTNameCHS());
@@ -147,5 +149,6 @@ public class LableGradView extends GridView {
                 Integer.MAX_VALUE >> 2, MeasureSpec.AT_MOST);
         super.onMeasure(widthMeasureSpec, expandSpec);
     }
+
 
 }

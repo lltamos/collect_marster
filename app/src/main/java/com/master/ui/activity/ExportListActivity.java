@@ -10,7 +10,6 @@ import com.master.app.tools.ActionBarManager;
 import com.master.app.weight.SearchBar;
 import com.master.app.weight.SearchListView;
 import com.master.contract.BaseActivity;
-import com.master.ui.adapter.MapListAdapter;
 
 import butterknife.BindView;
 
@@ -35,7 +34,7 @@ public class ExportListActivity extends BaseActivity {
         textView.setTextColor(Color.RED);
         textView.setPadding(32, 0, 0, 0);
         mListView.addHeaderView(textView);
-        mListView.setAdapter(new MapListAdapter());
+
         mListView.setEnableRefresh(false);
 
     }

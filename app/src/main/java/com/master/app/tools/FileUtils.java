@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -1005,5 +1006,28 @@ public class FileUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    //转换文件大小
+    public static String FormetFileSize(long fileS)
+    {// 转换文件大小
+        DecimalFormat df = new DecimalFormat("#.00");
+        String fileSizeString = "";
+        if (fileS < 1024)
+        {
+            fileSizeString = df.format((double) fileS) + "B";
+        }
+        else if (fileS < 1048576)
+        {
+            fileSizeString = df.format((double) fileS / 1024) + "K";
+        }
+        else if (fileS < 1073741824)
+        {
+            fileSizeString = df.format((double) fileS / 1048576) + "M";
+        }
+        else
+        {
+            fileSizeString = df.format((double) fileS / 1073741824) + "G";
+        }
+        return fileSizeString;
     }
 }

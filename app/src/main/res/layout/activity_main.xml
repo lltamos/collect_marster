@@ -59,51 +59,36 @@
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/main_scroll"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@color/white"
-        android:padding="12dp"
+        android:minHeight="360dp"
+
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
         <LinearLayout
-            android:id="@+id/ll_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="乡镇名称：" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:background="@drawable/shape_border" />
-            </LinearLayout>
+                android:background="@color/blue"
+                android:gravity="center"
+                android:text="录入"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
 
             <LinearLayout
+                android:id="@+id/ll_container"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="乡镇编码：" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:background="@drawable/shape_border" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -112,6 +97,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/save"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"

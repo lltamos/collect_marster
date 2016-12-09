@@ -18,27 +18,25 @@
         android:orientation="horizontal"
         android:padding="8dp">
 
-       <com.rey.material.widget.CheckBox
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content" />
-
+        <ImageView
+            android:id="@+id/imgview_maplist"
+            android:src="@drawable/ic_chevron_right_black_24dp"
+            android:scaleType="centerInside"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
         <TextView
+            android:id="@+id/tvfilename"
             style="@style/text_color_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="某某地图1"/>
-
+            />
         <TextView
+            android:id="@+id/tvfilesize"
             style="@style/text_color_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="50M"/>
-
-        <TextView
-            style="@style/text_color_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2016-10-18 09:30:44"/>
+            />
     </LinearLayout>
 
 </LinearLayout>
