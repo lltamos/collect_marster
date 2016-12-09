@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 
-import com.collect_master.model.MainModelImpl;
+import com.master.model.MainModelImpl;
 import com.master.bean.Fields;
 import com.master.contract.MvpPresenter;
 import com.master.interactors.JsonformInteractor;

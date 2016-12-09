@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.collect_master.model.MainModelImpl;
+import com.master.model.MainModelImpl;
 import com.master.R;
 import com.master.app.inter.CommonListener;
 import com.master.app.tools.GPSUtils;
