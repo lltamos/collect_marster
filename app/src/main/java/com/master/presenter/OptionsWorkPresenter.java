@@ -1,7 +1,5 @@
 package com.master.presenter;
 
-import android.util.Log;
-
 import com.master.app.orm.DbHelperDbHelper;
 import com.master.contract.MvpPresenter;
 import com.master.model.BaseModel;
@@ -42,7 +40,7 @@ public class OptionsWorkPresenter extends MvpPresenter<OptionsWorkActivity, Base
 
                     }
                 }, throwable -> {
-                    Log.d(mTag, "xxxxxxxxxxxxxxxxxxxxxxxxxxxThrowablexxxxxxxxxxxxx");
+
                 });
 
 
