@@ -1,6 +1,5 @@
 package com.master.app.view;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -9,10 +8,9 @@ import org.json.JSONObject;
 public interface JsonApi {
     JSONObject getStep(String stepName);
 
-    void writeValue(String stepName, String key, String value) throws JSONException;
+    void writeValue(String stepName, int key);
 
-    void writeValue(String stepName, String prentKey, String childObjectKey, String childKey, String value)
-            throws JSONException;
+
 
     String currentJsonState();
 

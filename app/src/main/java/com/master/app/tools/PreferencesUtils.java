@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 public class PreferencesUtils {
 
-    public static String PREFERENCE_NAME = "gold_SHARE_PREFS_";
+    private static String PREFERENCE_NAME = "gold_SHARE_PREFS_";
 
     private PreferencesUtils() {
         throw new AssertionError();

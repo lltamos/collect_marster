@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.master.app.Manager.ConfigMAnager;
 import com.master.app.SynopsisObj;
+import com.master.app.tools.AppManager;
 import com.master.app.tools.LoggerUtils;
 import com.master.bean.Fields;
 import com.master.bean.Maps;
@@ -18,6 +19,8 @@ import com.master.bean.TableContext;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * <p>Title:${type_inName}<p/>
@@ -176,8 +179,22 @@ public class DbHelperDbHelper {
         return mDb.insert(MAP_TABLE, null, contentValues);
     }
 
-    //
-//    public long updateCall(long rowIndex, String Number, Date Time, Float value, long longnumber) {
+
+    public long addTablEntry(String tableName, Map<String, String> param) {
+        ContentValues contentValues = new ContentValues();
+        Set<String> strings = param.keySet();
+        for (String s :
+                strings) {
+            String s1s = param.get(s);
+            contentValues.put(s, s1s);
+            LoggerUtils.d("addTablEntry", s1s);
+        }
+        contentValues.put(MAP_NUMBER_COLUMN, AppManager.getWorkMapId());
+        LoggerUtils.d("addTablEntry", AppManager.getWorkMapId() + "");
+        return mDb.insert(tableName, null, contentValues);
+    }
+
+    //    public long updateCall(long rowIndex, String Number, Date Time, Float value, long longnumber) {
 //        String where = ROW_ID + " = " + rowIndex;
 //        ContentValues contentValues = new ContentValues();
 //        contentValues.put(CALL_NUMBER_COLUMN, Number);
@@ -213,7 +230,6 @@ public class DbHelperDbHelper {
         cursor.close();
         return list;
 
-//        return
     }
 //
 //    public Cursor getCall(long rowIndex) {
@@ -263,7 +279,6 @@ public class DbHelperDbHelper {
                     oldVersion + " to " +
                     newVersion + ", which will destroy all old data");
 
-
 //            db.execSQL("DROP TABLE IF EXISTS " + MAP_TABLE + ";");
 //            db.execSQL("DROP TABLE IF EXISTS " + JWD_TABLE + ";");
 //            onCreate(db);
@@ -275,7 +290,7 @@ public class DbHelperDbHelper {
 
         List<TableContext> tableContexts = ConfigMAnager.create().getTablecontextList();
 
-        if (tableContexts.size() > 1) {
+        if (tableContexts.size() < 1) {
             LoggerUtils.d("tableContexts长度：", "构建失败");
         }
         LoggerUtils.d("tableContexts长度：", tableContexts.size() + "");
@@ -286,15 +301,24 @@ public class DbHelperDbHelper {
             for (int i = 0; i < fields.size(); i++) {
                 Fields f = fields.get(i);
                 String fName = f.getFName();
+
                 if (i == 0) {
-                    sql = sql + fName + " " + "VARCHAR(20) NOT NULL PRIMARY KEY,";
+                    sql = sql + fName + " " + "integer NOT NULL PRIMARY KEY AUTOINCREMENT ,";
                 } else {
                     sql = sql + fName + " " + "TEXT NOT NULL,";
+                    if (i == fields.size() - 1) {
+                        sql = " " + sql + " MAPID INTEGER NOT NULL,";
+                        sql = sql + " foreign key (MAPID) references " + MAP_TABLE + " (" + MAP_NUMBER_COLUMN + "),";
+                    }
                 }
+
+
             }
+
             int length = sql.length();
             sql = sql.substring(0, length - 1);
             sql = sql + ");";
+            LoggerUtils.d("tableContexts：", sql + "");
             list.add(sql);
         }
         return list;

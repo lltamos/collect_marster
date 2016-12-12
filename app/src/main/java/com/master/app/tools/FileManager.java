@@ -26,12 +26,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import static com.master.app.tools.DataKeeper.TYPE_FILE_AUDIO;
-import static com.master.app.tools.DataKeeper.audioPath;
-import static com.master.app.tools.DataKeeper.imagePath;
-import static com.master.app.tools.DataKeeper.tempPath;
-import static com.master.app.tools.DataKeeper.videoPath;
-
 /**
  * 数据存储工具类
  *
@@ -109,7 +103,7 @@ public class FileManager {
      *             regionmap = "";							//离线地图
      * @return 存储文件的绝对路径名 若SDCard不存在返回null
      */
-    public static String storeFile(File file, String type) {
+    public static String storeFile(File file, int type) {
 
         if (!hasSDCard()) {
             return null;
@@ -132,23 +126,24 @@ public class FileManager {
      * @return 存储文件的绝对路径名 若SDCard不存在返回null
      */
     @SuppressLint("DefaultLocale")
-    public static String storeFile(byte[] data, String suffix, String type) {
+    public static String storeFile(byte[] data, String suffix, int type) {
 
         if (!hasSDCard()) {
             return null;
         }
         String path = null;
-        if (type.equals(TYPE_FILE_RAOD)) {
-            path = exChangePath + "json_" + Long.toHexString(System.currentTimeMillis()).toUpperCase()
-                    + "." + suffix;
-        } else if (type.equals(TYPE_FILE_REGION)) {
+        if (type == (TYPE_FILE_RAOD)) {
             path = roadPath + "road_" + Long.toHexString(System.currentTimeMillis()).toUpperCase()
                     + "." + suffix;
-        } else if (type.equals(TYPE_FILE_AUDIO)) {
-            path = regionPath + "region_" + Long.toHexString(System.currentTimeMillis()).toUpperCase()
+        } else if (type == (TYPE_FILE_REGION)) {
+            path = regionPath + "regin_" + Long.toHexString(System.currentTimeMillis()).toUpperCase()
+                    + "." + suffix;
+        } else if (type == (TYPE_FILE_EXCHANGE)) {
+            path = exChangePath + "json_" + Long.toHexString(System.currentTimeMillis()).toUpperCase()
                     + "." + suffix;
         }
         try {
+
             FileOutputStream out = new FileOutputStream(path);
             out.write(data, 0, data.length);
             out.close();
@@ -165,7 +160,6 @@ public class FileManager {
     }
 
     /**
-     *
      * @param fileName
      * @return
      */
@@ -181,13 +175,13 @@ public class FileManager {
 
         switch (fileType) {
             case TYPE_FILE_RAOD:
-                return imagePath + fileName + "." + formSuffix;
+                return roadPath + fileName + "." + formSuffix;
             case TYPE_FILE_REGION:
-                return videoPath + fileName + "." + formSuffix;
-            case TYPE_FILE_AUDIO:
-                return audioPath + fileName + "." + formSuffix;
+                return regionPath + fileName + "." + formSuffix;
+            case TYPE_FILE_EXCHANGE:
+                return exChangePath + fileName + "." + formSuffix;
             default:
-                return tempPath + fileName + "." + formSuffix;
+                return null;
         }
     }
 

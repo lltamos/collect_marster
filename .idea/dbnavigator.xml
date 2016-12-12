@@ -23,17 +23,15 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="97744c28-46d6-481e-97ae-588a9b1969c9">
-        <schema name="learns" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
-        <schema name="mysql" object-types="table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="97744c28-46d6-481e-97ae-588a9b1969c9">
-      <console name="Connection" type="STANDARD" />
+      <console name="Connection" type="STANDARD"><![CDATA[select * from books;]]></console>
     </connection>
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-list connection-id="97744c28-46d6-481e-97ae-588a9b1969c9" dataset="learns.books" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

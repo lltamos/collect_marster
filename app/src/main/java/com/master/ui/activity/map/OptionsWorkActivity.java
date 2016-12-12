@@ -6,13 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.master.R;
+import com.master.app.Constants;
 import com.master.app.SynopsisObj;
 import com.master.app.tools.ActionBarManager;
+import com.master.app.tools.AppManager;
 import com.master.app.tools.CommonDateParseUtils;
 import com.master.app.tools.LoggerUtils;
+import com.master.app.tools.PreferencesUtils;
 import com.master.app.weight.SearchBar;
 import com.master.app.weight.SearchListView;
 import com.master.bean.Maps;
@@ -25,6 +27,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
+import static com.master.app.Constants.STATUS_DEFAULT_NUM;
 
 public class OptionsWorkActivity extends MvpActivity<OptionsWorkPresenter> {
     @BindView(R.id.title)
@@ -49,7 +54,23 @@ public class OptionsWorkActivity extends MvpActivity<OptionsWorkPresenter> {
         presenter.getMapFormData();
         mListView.setAdapter(adapter);
         mListView.setEnableRefresh(false);
-        mListView.setOnItemClickListener((parent, view, position, id) -> Toast.makeText(mContext, "item", Toast.LENGTH_SHORT).show());
+        mListView.setOnItemClickListener((parent, view, position, id) ->
+        {
+            position = position - 2;
+            long aLong = AppManager.getWorkMapId();
+            String title = (aLong != STATUS_DEFAULT_NUM) ? "切换工作地图" : "设置工作地图";
+            int finalPosition = position;
+            new SweetAlertDialog(this, SweetAlertDialog.NORMAL_TYPE)
+                    .setTitleText(title)
+                    .setContentText("确定使用" + maps.get(position).mName + "此工作地图?")
+                    .setConfirmText("确定")
+                    .setCancelText("取消")
+                    .setConfirmClickListener(sweetAlertDialog -> {
+                        PreferencesUtils.putLong(this, Constants.CURRENT_USER_MAP, maps.get(finalPosition).mId);
+                        sweetAlertDialog.setContentText("设置完成").showCancelButton(false).setTitleText("").setConfirmClickListener(null).changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                    }).show();
+
+        });
 
     }
 
@@ -63,14 +84,16 @@ public class OptionsWorkActivity extends MvpActivity<OptionsWorkPresenter> {
         return new OptionsWorkPresenter(new BaseModel());
     }
 
+    private List<Maps> maps;
 
     public void initPortalItemView(List list) {
         adapter.setData(list);
+        this.maps = list;
     }
 
     class MyAdapter extends BaseAdapter {
         private List<Maps> list;
-        private ViewHolder holder;
+        private WorkViewHolder holder;
 
         public void setData(List<Maps> list) {
             this.list = list;
@@ -96,13 +119,13 @@ public class OptionsWorkActivity extends MvpActivity<OptionsWorkPresenter> {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder;
+            WorkViewHolder holder;
             if (convertView == null) {
                 convertView = View.inflate(SynopsisObj.getAppContext(), R.layout.map_list_item2, null);
-                holder = new ViewHolder(convertView);
+                holder = new WorkViewHolder(convertView);
                 convertView.setTag(holder);
             }
-            holder = (ViewHolder) convertView.getTag();
+            holder = (WorkViewHolder) convertView.getTag();
 
             String msg = "cx";
             int id = 10000 + list.get(position).mId;
@@ -114,7 +137,7 @@ public class OptionsWorkActivity extends MvpActivity<OptionsWorkPresenter> {
             return convertView;
         }
 
-        class ViewHolder {
+        public class WorkViewHolder {
             @BindView(R.id.tv_id)
             TextView tvId;
             @BindView(R.id.tv_name)
@@ -122,7 +145,7 @@ public class OptionsWorkActivity extends MvpActivity<OptionsWorkPresenter> {
             @BindView(R.id.tv_date)
             TextView tvDate;
 
-            ViewHolder(View view) {
+            WorkViewHolder(View view) {
                 ButterKnife.bind(this, view);
             }
         }

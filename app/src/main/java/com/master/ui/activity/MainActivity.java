@@ -7,27 +7,32 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.master.model.MainModelImpl;
 import com.master.R;
 import com.master.app.inter.CommonListener;
+import com.master.app.orm.DbHelperDbHelper;
+import com.master.app.tools.AppManager;
 import com.master.app.tools.GPSUtils;
+import com.master.app.tools.ObjectUtils;
 import com.master.app.view.JsonApi;
 import com.master.app.weight.APSTSViewPager;
 import com.master.app.weight.AdvancedPagerSlidingTabStrip;
 import com.master.bean.Fields;
+import com.master.model.MainModelImpl;
 import com.master.presenter.MainPresenter;
 import com.master.ui.adapter.TabsAdapter;
 import com.master.ui.viewer.MainVIew;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 
@@ -35,6 +40,7 @@ public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew
 
     public static MainActivity S_MainActivity;
 
+    public static String tname;
     @BindView(R.id.tabs)
     AdvancedPagerSlidingTabStrip tabs;
 
@@ -51,6 +57,7 @@ public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew
     private List<View> views = new ArrayList<>();
     @BindView(R.id.save)
     Button save;
+    private BottomSheetBehavior behavior;
 
     @Override
     protected MainPresenter createPresenter() {
@@ -120,14 +127,66 @@ public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew
     }
 
     @Override
-    public void writeValue(String stepName, String key, String value) throws JSONException {
+    public void writeValue(String tName, int key) {
+        if (!AppManager.checkWorkMap()) {
+            showToast("请先设置工作地图");
+            return;
+        }
+        Map<String, String> map = new HashMap<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            //因为属性表中主键自动增长，我们需要跳过主键跳过主键
+
+            String tag = (String) list.get(i).getTag(key);
+            if (ObjectUtils.isNullOrEmptyString(tag)) continue;
+            if (list.get(i) instanceof EditText) {
+                String s = ((EditText) list.get(i)).getText().toString();
+                if (ObjectUtils.isNullOrEmptyString(s)) {
+                    showToast("录入信息不完整...");
+                    return;
+                }
+                map.put(tag, s);
+            }
+        }
+
+        DbHelperDbHelper.open().addTablEntry(tname, map);
+
+//        StringBuffer sql = new StringBuffer().append("insert into " + tname + " (");
+//        for (int i = 0; i < list.size(); i++) {
+//            String fname = (String) list.get(i).getTag(R.id.fname);
+//            if (i == list.size() - 1) {
+//                sql.append(" " + fname + ") ");
+//            } else
+//                sql.append(" " + fname + ",");
+//        }
+//        LoggerUtils.d(sClassName, sql.toString());
+//        sql.append(" " + "values" + "(");
+//        for (int i = 0; i < list.size(); i++) {
+//            View temp = list.get(i);
+//            if (i == list.size() - 1) {
+//                if (temp instanceof EditText) {
+//                    String s = ((EditText) temp).getText().toString();
+//                    if (ObjectUtils.isNullOrEmptyString(s)) {
+//                        showToast("录入信息不完整...");
+//                        return;
+//                    }
+//                    sql.append(s + " );");
+//                }
+//            } else {
+//                if (temp instanceof EditText) {
+//                    String s = ((EditText) temp).getText().toString();
+//                    if (ObjectUtils.isNullOrEmptyString(s)) {
+//                        showToast("录入信息不完整...");
+//                        return;
+//                    }
+//                    sql.append(s + ", ");
+//                }
+//            }
+//            LoggerUtils.d(sClassName, sql.toString());
+//        }
 
     }
 
-    @Override
-    public void writeValue(String stepName, String prentKey, String childObjectKey, String childKey, String value) throws JSONException {
-
-    }
 
     @Override
     public String currentJsonState() {
@@ -145,7 +204,8 @@ public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew
             showExtra();
         }
         if (v == save) {
-            Toast.makeText(this, "xxx", Toast.LENGTH_SHORT).show();
+            writeValue(tname, R.id.fname);
+            behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         }
     }
 
@@ -168,13 +228,14 @@ public class MainActivity extends MvpActivity<MainPresenter> implements MainVIew
         viewPager.setCurrentItem(item);
     }
 
+    private List<View> list;
 
     public void builderSheet(List<Fields> fieldsList) {
-        presenter.builderSheetElement(this, fieldsList);
+        list = presenter.builderSheetElement(this, fieldsList);
     }
 
     public void show(View v) {
-        BottomSheetBehavior behavior = BottomSheetBehavior.from(v);
+        behavior = BottomSheetBehavior.from(v);
         if (behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
             behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         } else {

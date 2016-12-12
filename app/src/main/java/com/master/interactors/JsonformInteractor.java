@@ -38,8 +38,8 @@ public class JsonformInteractor {
         try {
 
             for (int i = 0; i < parentJson.size(); i++) {
-                Fields child = parentJson.get(i);
 
+                Fields child = parentJson.get(i);
                 try {
                     String type = child.getFcode().equals("") ? Constants.EDIT_TEXT : "";
                     List<View> views = map.get(type).getViewsFromJson(context, child, null);

@@ -14,13 +14,13 @@ import android.view.animation.LayoutAnimationController;
 import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.master.R;
 import com.master.app.Constants;
 import com.master.app.Manager.AcquisitionPara;
 import com.master.app.tools.AppManager;
 import com.master.app.tools.CommonUtils;
+import com.master.app.tools.LoggerUtils;
 import com.master.bean.Fields;
 import com.master.bean.Table;
 import com.master.ui.activity.MainActivity;
@@ -111,11 +111,15 @@ public class LableGradView extends GridView {
                     if (datasId == R.array.m_point_label) {
                         MainActivity.S_MainActivity.hideExtra();
 
-                        Toast.makeText(context, dataList.get(i).getTNameCHS(), Toast.LENGTH_SHORT).show();
+                        LoggerUtils.d("LableGradView", dataList.get(i).getTNameCHS());
+                        //获取tname对应的所有字段
                         List<Fields> arguments = MainActivity.S_MainActivity.getArguments(dataList.get(i).getTName(), new ArrayList<>());
                         if (arguments == null) return;
+                        MainActivity.tname = dataList.get(i).getTName();
+                        //生产view
                         MainActivity.S_MainActivity.builderSheet(arguments);
                         MainActivity.S_MainActivity.show(MainActivity.S_MainActivity.findViewById(R.id.main_scroll));
+
                     }
                 });
                 lable.setText(dataList.get(i).getTNameCHS());

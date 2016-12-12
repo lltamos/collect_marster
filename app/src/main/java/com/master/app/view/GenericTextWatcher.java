@@ -7,8 +7,6 @@ import android.view.View;
 
 import com.master.R;
 
-import org.json.JSONException;
-
 public class GenericTextWatcher implements TextWatcher {
 
     private View mView;
@@ -39,8 +37,8 @@ public class GenericTextWatcher implements TextWatcher {
 
         String key = (String) mView.getTag(R.id.key);
         try {
-            api.writeValue(mStepName, key, text);
-        } catch (JSONException e) {
+//            api.writeValue(mStepName, key, text);
+        } catch (Exception e) {
             // TODO- handle
             e.printStackTrace();
         }

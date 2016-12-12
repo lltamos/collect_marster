@@ -11,4 +11,6 @@
 
     <item name="v_required" type="id" />
     <item name="error" type="id" />
+
+    <item name="fname" type="id" />
 </resources>

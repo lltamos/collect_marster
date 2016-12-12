@@ -30,9 +30,10 @@ public class MainPresenter extends MvpPresenter<MainVIew, MainModel> {
         return mModel.getArgsParms(tname, list);
     }
 
-    public void builderSheetElement(Context c, List<Fields> fieldsList) {
+    public List<View> builderSheetElement(Context c, List<Fields> fieldsList) {
         List<View> views = JsonformInteractor.getInstance().fetchFormElements(c, fieldsList, null);
         getView().addFormElements(views);
+        return views;
     }
 
     public void parseValue(List<View> views) {
